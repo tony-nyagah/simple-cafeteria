@@ -18,5 +18,6 @@
     "titleBar.inactiveBackground": "#0b0aaa99",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#0b0aaa"
+  "peacock.color": "#0b0aaa",
+  "gitdoc.enabled": false
 }
