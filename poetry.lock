@@ -72,6 +72,21 @@ python-versions = ">=3.6"
 Django = ">=3.2"
 
 [[package]]
+name = "django-phonenumber-field"
+version = "7.0.1"
+description = "An international phone number field for django models."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+Django = ">=3.2"
+
+[package.extras]
+phonenumbers = ["phonenumbers (>=7.0.2)"]
+phonenumberslite = ["phonenumberslite (>=7.0.2)"]
+
+[[package]]
 name = "djangorestframework"
 version = "3.14.0"
 description = "Web APIs for Django, made easy."
@@ -169,7 +184,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "d3e36241f56b839493e77643f742a9c94fad1d1f838f3fbec3013a6b1cd33d92"
+content-hash = "d41a35776328f93b290ec1cd3772dcc22ec9ff97170c703537de9e11b7cb46f5"
 
 [metadata.files]
 asgiref = [
@@ -195,6 +210,10 @@ django-debug-toolbar = [
 django-extensions = [
     {file = "django-extensions-3.2.1.tar.gz", hash = "sha256:2a4f4d757be2563cd1ff7cfdf2e57468f5f931cc88b23cf82ca75717aae504a4"},
     {file = "django_extensions-3.2.1-py3-none-any.whl", hash = "sha256:421464be390289513f86cb5e18eb43e5dc1de8b4c27ba9faa3b91261b0d67e09"},
+]
+django-phonenumber-field = [
+    {file = "django-phonenumber-field-7.0.1.tar.gz", hash = "sha256:9e2b302f239e4703fa9030e44833db5eb524a731335fd77b0b703bd352fbe8d0"},
+    {file = "django_phonenumber_field-7.0.1-py3-none-any.whl", hash = "sha256:969bbcab203d697ea44c38726bdc7d72ac9f1ba397694b9f57422b471ad73590"},
 ]
 djangorestframework = [
     {file = "djangorestframework-3.14.0-py3-none-any.whl", hash = "sha256:eb63f58c9f218e1a7d064d17a70751f528ed4e1d35547fdade9aaf4cd103fd08"},
