@@ -19,5 +19,6 @@
     "titleBar.inactiveForeground": "#e7e7e799"
   },
   "peacock.color": "#0b0aaa",
-  "gitdoc.enabled": false
+  "gitdoc.enabled": false,
+  "python.formatting.provider": "black"
 }
