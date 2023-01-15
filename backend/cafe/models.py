@@ -1,41 +1,26 @@
 from django.db import models
 
 
+class FoodItem(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=5, decimal_places=2)
+    image = models.ImageField(upload_to="food_images/")
+
+
 class Customer(models.Model):
     first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=255)
     email = models.EmailField()
-    phone = models.CharField(max_length=12)
-    balance = models.DecimalField(max_digits=7, decimal_places=2, default=0.00)
-
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
-
-
-class Menu(models.Model):
-    name = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=7, decimal_places=2)
-    description = models.TextField()
-
-    def __str__(self):
-        return f"{self.name}"
 
 
 class Order(models.Model):
+    class status(models.TextChoices):
+        PAID = "Paid"
+        UNPAID = "Unpaid"
+
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    items = models.ManyToManyField(Menu)
-    total_price = models.DecimalField(max_digits=7, decimal_places=2)
-    date_ordered = models.DateTimeField(auto_now_add=True)
-    is_paid = models.BooleanField(default=False)
-
-    def __str__(self):
-        return f"{self.id}"
-
-
-class Payment(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    amount = models.DecimalField(max_digits=7, decimal_places=2)
-    date_paid = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"{self.order.id}"
+    items = models.ManyToManyField(FoodItem)
+    total_price = models.DecimalField(max_digits=5, decimal_places=2)
+    order_status = models.CharField(max_length=10, choices=status.choices)
+    order_date = models.DateTimeField(auto_now_add=True)
